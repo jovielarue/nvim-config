@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'bashls', 'cssmodules_ls', 'cssls', 'css_variables', 'dockerls', 'eslint', 'gradle_ls', 'kotlin_language_server', 'markdown_oxide', 'biome', 'svelte', 'tailwindcss', 'lua_ls', 'rust_analyzer' },
+    ensure_installed = {'bashls', 'cssmodules_ls', 'cssls', 'css_variables', 'dockerls', 'eslint', 'gradle_ls', 'kotlin_language_server', 'markdown_oxide', 'biome', 'svelte', 'tailwindcss', 'lua_ls', 'rust_analyzer' },
 })
 
 -- Set different settings for different languages' LSP
