@@ -11,14 +11,24 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({	
+require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  "RRethy/vim-illuminate",
   {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  "diegoulloao/neofusion.nvim",
   {'neovim/nvim-lspconfig'},
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
+  },
   {'hrsh7th/cmp-nvim-lsp'},
   {'hrsh7th/nvim-cmp'},
   {'L3MON4D3/LuaSnip'},
   "nvimtools/none-ls.nvim",
+  "morhetz/gruvbox",
   "MunifTanjim/prettier.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
@@ -26,14 +36,14 @@ require("lazy").setup({
   "m4xshen/autoclose.nvim",
   -- nvim-tree (file explorer)
   {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-      }
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
   },
   -- Vscode-like pictograms
 	{
@@ -61,7 +71,8 @@ require("lazy").setup({
 	},
 })
 require("autoclose").setup()
-
+require("ibl").setup()
+require "lsp_signature".setup()
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
@@ -204,4 +215,16 @@ prettier.setup({
 --})
 
 -- setup must be called before loading
-vim.cmd 'colorscheme slate'
+vim.cmd 'colorscheme gruvbox'
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if vim.tbl_contains({ 'null-ls' }, client.name) then  -- blacklist lsp
+      return
+    end
+    require("lsp_signature").on_attach({
+      -- ... setup options here ...
+    }, bufnr)
+  end,
+})
