@@ -15,6 +15,45 @@ require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   "RRethy/vim-illuminate",
   {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  "prettier/vim-prettier",
+  { "stevearc/conform.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    local conform = require("conform")
+
+    conform.setup({
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        svelte = { "prettier" },
+        css = { "prettier" },
+        html = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        graphql = { "prettier" },
+        lua = { "stylua" },
+        python = { "isort", "black" },
+        sql = { "sql-formatter "},
+      },
+      format_on_save = {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
+      },
+    })
+
+    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+      conform.format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
+      })
+    end, { desc = "Format file or range (in visual mode)" })
+  end,
+},
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   "diegoulloao/neofusion.nvim",
   {'neovim/nvim-lspconfig'},
@@ -228,3 +267,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     }, bufnr)
   end,
 })
+vim.cmd 'packloadall'
+vim.cmd "let g:prettier#config#single_quote = 'true'"
+vim.cmd "let g:prettier#config#trailing_comma = 'all'"
