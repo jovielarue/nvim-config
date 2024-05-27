@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "catppuccin/nvim",                     name = "catppuccin", priority = 1000 },
+  "catppuccin/nvim",
   "windwp/nvim-ts-autotag",
   {
     "nvim-treesitter/nvim-treesitter",
@@ -73,7 +73,7 @@ require("lazy").setup({
       end, { desc = "Format file or range (in visual mode)" })
     end,
   },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   "diegoulloao/neofusion.nvim",
   "L3MON4D3/LuaSnip",
   "morhetz/gruvbox",
@@ -89,7 +89,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      "3rd/image.nvim",           -- Optional image support in preview window: See `# Preview Mode` for more information
+      "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
     },
   },
   -- Vscode-like pictograms
@@ -102,9 +102,9 @@ require("lazy").setup({
     dependencies = {
       "lspkind.nvim",
       "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
-      "hrsh7th/cmp-buffer", -- buffer auto-completion
-      "hrsh7th/cmp-path",  -- path auto-completion
-      "hrsh7th/cmp-cmdline", -- cmdline auto-completion
+      "hrsh7th/cmp-buffer",   -- buffer auto-completion
+      "hrsh7th/cmp-path",     -- path auto-completion
+      "hrsh7th/cmp-cmdline",  -- cmdline auto-completion
     },
   },
   -- Code snippet engine
