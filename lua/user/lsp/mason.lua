@@ -10,6 +10,7 @@ local servers = {
   "eslint",
   "tailwindcss",
   "kotlin_language_server",
+  "intelephense",
 }
 
 local settings = {

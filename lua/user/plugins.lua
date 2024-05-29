@@ -13,33 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "catppuccin/nvim",
-  "windwp/nvim-ts-autotag",
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      local configs = require("nvim-treesitter.configs")
-
-      configs.setup({
-        ensure_installed = {
-          "c",
-          "lua",
-          "vim",
-          "vimdoc",
-          "query",
-          "elixir",
-          "heex",
-          "javascript",
-          "html",
-          "markdown",
-          "markdown_inline",
-        },
-        sync_install = false,
-        indent = { enable = true },
-      })
-    end,
-  },
   "brenoprata10/nvim-highlight-colors",
+  "windwp/nvim-ts-autotag",
   "RRethy/vim-illuminate",
   "lewis6991/hover.nvim",
   "plenary.nvim",
@@ -75,7 +50,14 @@ require("lazy").setup({
   },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   "diegoulloao/neofusion.nvim",
-  "L3MON4D3/LuaSnip",
+  "nvim-treesitter/nvim-treesitter",
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    build = "make install_jsregexp",
+  },
   "morhetz/gruvbox",
   "MunifTanjim/prettier.nvim",
   "williamboman/mason.nvim",
@@ -107,14 +89,20 @@ require("lazy").setup({
       "hrsh7th/cmp-cmdline",  -- cmdline auto-completion
     },
   },
-  -- Code snippet engine
-  "L3MON4D3/LuaSnip",
 })
 
 require("autoclose").setup()
 require("ibl").setup()
-require("nvim-ts-autotag").setup()
 require("nvim-highlight-colors").setup({})
+require('nvim-ts-autotag').setup({
+  opts = {
+    -- Defaults
+    enable_close = true,          -- Auto close tags
+    enable_rename = true,         -- Auto rename pairs of tags
+    enable_close_on_slash = false -- Auto close on trailing </
+  },
+})
+
 
 local prettier = require("prettier")
 prettier.setup({
