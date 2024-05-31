@@ -12,52 +12,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "catppuccin/nvim",
+  "akinsho/bufferline.nvim",
+  "Exafunction/codeium.nvim",
+  "lewis6991/gitsigns.nvim",
   "brenoprata10/nvim-highlight-colors",
   "windwp/nvim-ts-autotag",
   "RRethy/vim-illuminate",
   "lewis6991/hover.nvim",
   "plenary.nvim",
   "prettier/vim-prettier",
-  {
-    "stevearc/conform.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local conform = require("conform")
-      conform.setup({
-        formatters_by_ft = {
-          javascript = { "prettier" },
-          typescript = { "prettier" },
-          javascriptreact = { "prettier" },
-          typescriptreact = { "prettier" },
-          svelte = { "prettier" },
-          css = { "prettier" },
-          html = { "prettier" },
-          json = { "prettier" },
-          yaml = { "prettier" },
-          markdown = { "prettier" },
-          graphql = { "prettier" },
-          lua = { "stylua" },
-          python = { "isort", "black" },
-          sql = { "sql-formatter " },
-        },
-        format_on_save = { lsp_fallback = true, async = false, timeout_ms = 500 },
-      })
-      vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-        conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
-      end, { desc = "Format file or range (in visual mode)" })
-    end,
-  },
+  "stevearc/conform.nvim",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-  "diegoulloao/neofusion.nvim",
   "nvim-treesitter/nvim-treesitter",
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    build = "make install_jsregexp",
-  },
+  "L3MON4D3/LuaSnip",
+  'saadparwaiz1/cmp_luasnip',
   "morhetz/gruvbox",
   "MunifTanjim/prettier.nvim",
   "williamboman/mason.nvim",
@@ -74,10 +42,13 @@ require("lazy").setup({
       "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
     },
   },
-  -- Vscode-like pictograms
   {
     "onsails/lspkind.nvim",
     event = { "VimEnter" },
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
   {
     "hrsh7th/nvim-cmp",
@@ -94,36 +65,6 @@ require("lazy").setup({
 require("autoclose").setup()
 require("ibl").setup()
 require("nvim-highlight-colors").setup({})
-require('nvim-ts-autotag').setup({
-  opts = {
-    -- Defaults
-    enable_close = true,          -- Auto close tags
-    enable_rename = true,         -- Auto rename pairs of tags
-    enable_close_on_slash = false -- Auto close on trailing </
-  },
-})
-
-
-local prettier = require("prettier")
-prettier.setup({
-  bin = "prettier", -- or `'prettierd'` (v0.23.3+)
-  filetypes = {
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-  },
-})
-vim.cmd("let g:prettier#config#single_quote = 'true'")
-vim.cmd("let g:prettier#config#trailing_comma = 'all'")
 
 vim.cmd("colorscheme gruvbox")
 vim.cmd("packloadall")

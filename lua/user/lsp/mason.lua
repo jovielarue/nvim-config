@@ -9,6 +9,7 @@ local servers = {
   "yamlls",
   "eslint",
   "tailwindcss",
+  "jdtls",
   "kotlin_language_server",
   "intelephense",
 }
