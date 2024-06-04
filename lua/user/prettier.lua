@@ -4,6 +4,7 @@ prettier.setup({
   filetypes = {
     "css",
     "graphql",
+    "php",
     "html",
     "javascript",
     "javascriptreact",
@@ -11,6 +12,7 @@ prettier.setup({
     "less",
     "markdown",
     "scss",
+    "lua",
     "typescript",
     "typescriptreact",
     "yaml",
