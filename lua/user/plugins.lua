@@ -13,7 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "akinsho/bufferline.nvim",
+  "tpope/vim-fugitive",
   "Exafunction/codeium.nvim",
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' } }
+  },
   "lewis6991/gitsigns.nvim",
   "brenoprata10/nvim-highlight-colors",
   "windwp/nvim-ts-autotag",
