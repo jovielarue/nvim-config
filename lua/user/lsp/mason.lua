@@ -12,6 +12,7 @@ local servers = {
   "jdtls",
   "kotlin_language_server",
   "intelephense",
+  "rust_analyzer",
 }
 
 local settings = {
@@ -41,7 +42,6 @@ end
 local opts = {}
 
 for _, server in pairs(servers) do
-
   server = vim.split(server, "@")[1]
 
   local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
