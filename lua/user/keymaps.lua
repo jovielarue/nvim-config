@@ -9,8 +9,8 @@ local opts = {
 -----------------
 
 -- Switch tabs easily
-vim.keymap.set("n", "H", ":BufferLineCycleNext<CR>", opts)
-vim.keymap.set("n", "L", ":BufferLineCyclePrev<CR>", opts)
+vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", opts)
+vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", opts)
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation

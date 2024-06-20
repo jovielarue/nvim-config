@@ -23,4 +23,4 @@ opt.incsearch = true  -- search as characters are entered
 opt.hlsearch = true   -- highlight matches
 opt.ignorecase = true -- ignore case in searches by default
 opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
-opt.wrap = false
+opt.wrap = true
