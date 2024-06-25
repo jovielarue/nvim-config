@@ -12,8 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  "mfussenegger/nvim-dap",
   "akinsho/bufferline.nvim",
   "tpope/vim-fugitive",
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   "Exafunction/codeium.nvim",
   {
     'nvim-telescope/telescope.nvim',
@@ -67,10 +74,5 @@ require("lazy").setup({
   },
 })
 
-require("autoclose").setup()
-require("ibl").setup()
-require("nvim-highlight-colors").setup({})
-
 vim.cmd("colorscheme gruvbox")
 vim.cmd("packloadall")
-vim.opt.termguicolors = true

@@ -12,6 +12,9 @@ local opts = {
 vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", opts)
 
+-- Start Oil (file explorer)
+vim.keymap.set("n", "e", ":Oil<CR>", opts)
+
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
