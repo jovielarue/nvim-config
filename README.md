@@ -11,4 +11,5 @@
 - Line commenting with [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - Auto-tagging with [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - Auto-pairing with [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- Surround selection with [nvim-surround](https://github.com/kylechui/nvim-surround)
 - Line completion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp), [luasnip](https://github.com/L3MON4D3/LuaSnip), and [Codeium](https://github.com/Exafunction/codeium.nvim)

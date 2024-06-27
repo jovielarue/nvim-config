@@ -1,6 +1,5 @@
 return {
   settings = {
-
     Lua = {
       diagnostics = {
         globals = { "vim", "love" },
@@ -14,3 +13,4 @@ return {
     },
   },
 }
+

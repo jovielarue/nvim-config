@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   "mfussenegger/nvim-dap",
   "akinsho/bufferline.nvim",
+  "kylechui/nvim-surround",
   "tpope/vim-fugitive",
   "RRethy/vim-illuminate",
   {
