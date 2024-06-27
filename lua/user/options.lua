@@ -13,7 +13,7 @@ opt.autoindent = true
 -- UI config
 opt.number = true         -- show absolute number
 opt.relativenumber = true -- add numbers to each line on the left side
--- opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
+opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
 opt.splitbelow = true     -- open new vertical split bottom
 opt.splitright = true     -- open new horizontal splits right
 opt.termguicolors = true  -- enable 24-bit RGB color in the TUI
