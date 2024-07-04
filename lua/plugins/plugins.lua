@@ -13,7 +13,28 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "mfussenegger/nvim-dap",
+  "ThePrimeagen/vim-be-good",
+  "kdheepak/lazygit.nvim",
   "akinsho/bufferline.nvim",
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
+  },
   "kylechui/nvim-surround",
   "tpope/vim-fugitive",
   "RRethy/vim-illuminate",
@@ -79,5 +100,5 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
 vim.cmd("packloadall")

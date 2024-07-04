@@ -12,6 +12,14 @@ local opts = {
 vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", opts)
 
+-- Set page up/down to center cursor vertically
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+
+-- Set <C-w> to <C-w><C-w> so I don't have to press it twice
+-- It pauses for a second before completing so I commented it out until I find a fix
+-- vim.keymap.set("n", "<C-w>", "<C-w><C-w>", opts)
+
 -- Start Oil (file explorer)
 vim.keymap.set("n", "e", ":Oil<CR>", opts)
 

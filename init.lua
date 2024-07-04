@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 require("plugins.plugins")
 require("lsp")
 require("plugins.autoclose")
@@ -11,6 +12,7 @@ require("plugins.gitsigns")
 require("plugins.hover")
 require("plugins.ibl")
 require("plugins.illuminate")
+require("plugins.lazygit")
 require("plugins.lualine")
 require("plugins.luasnip")
 require("plugins.nvim-highlight-colors")

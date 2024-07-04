@@ -10,7 +10,7 @@ cmp.setup({
     end,
   },
   window = {
-    -- completion = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
@@ -21,12 +21,12 @@ cmp.setup({
     ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
-    { name = 'luasnip' }, -- For luasnip users.
-    { name = 'nvim_lsp', max_item_count = 5 },
+    { name = 'luasnip',  max_item_count = 8 }, -- For luasnip users.
+    { name = 'nvim_lsp', max_item_count = 8 },
     -- { name = "codeium" },
-    { name = 'path' },
-    -- { name = 'cmdline' },
-    { name = 'buffer' },
+    { name = 'path',     max_item_count = 8 },
+    -- { name = 'cmdline',  max_item_count = 8 },
+    { name = 'buffer',   max_item_count = 8 },
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   })

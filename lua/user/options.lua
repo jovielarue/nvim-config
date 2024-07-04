@@ -1,5 +1,6 @@
 local opt = vim.opt
 -- Hint: use `:h <option>` to figure out the meaning if needed
+vim.cmd("colorscheme retrobox")
 opt.clipboard = "unnamedplus" -- use system clipboard
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.mouse = "a"               -- allow the mouse to be used in Nvim
