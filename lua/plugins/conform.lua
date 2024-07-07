@@ -16,7 +16,7 @@ conform.setup({
     graphql = { "prettier" },
     lua = { "stylua" },
     python = { "isort", "black" },
-    sql = { "sql-formatter " },
+    sql = { "sql-formatter" },
   },
   format_on_save = { lsp_fallback = true, async = false, timeout_ms = 500 },
   vim.keymap.set({ "n", "v" }, "<leader>mp", function()

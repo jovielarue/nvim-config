@@ -23,12 +23,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 -- Start Oil (file explorer)
 vim.keymap.set("n", "e", ":Oil<CR>", opts)
 
--- Hint: see `:h vim.map.set()`
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+-- commented in lieu of vim-tmux-navigator
+-- -- Hint: see `:h vim.map.set()`
+-- -- Better window navigation
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 -- delta: 2 lines
@@ -52,6 +53,36 @@ vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+
+
+---------------
+-- Debugging --
+---------------
+vim.keymap.set('n', '<Leader>c', function() require('dap').continue() end)
+vim.keymap.set('n', '<Leader>so', function() require('dap').step_over() end)
+vim.keymap.set('n', '<Leader>si', function() require('dap').step_into() end)
+vim.keymap.set('n', '<Leader>out', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>bb', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>b', function() require('dap').set_breakpoint() end)
+vim.keymap.set('n', '<Leader>lp',
+  function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
+  require('dap.ui.widgets').preview()
+end)
+vim.keymap.set('n', '<Leader>df', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end)
+
 
 -----------------
 -- Visual mode --
