@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.opt.conceallevel = 1
 require("plugins.plugins")
 require("lsp")
 require("plugins.autoclose")
