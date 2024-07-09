@@ -28,7 +28,7 @@ local settings = {
   max_concurrent_installers = 4,
 }
 
-require("mason").setup(settings)
+require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = servers,
   automatic_installation = true,
@@ -46,9 +46,7 @@ dap.listeners.before.event_terminated.dapui_config = function()
   dapui.close()
 end
 dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
-end
-require("neodev").setup({
+  dapui.close() end require("neodev").setup({
   library = { plugins = { "nvim-dap-ui" }, types = true },
 })
 

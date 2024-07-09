@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- define common options
 local opts = {
   noremap = true, -- non-recursive

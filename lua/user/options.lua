@@ -1,6 +1,6 @@
 local opt = vim.opt
 -- Hint: use `:h <option>` to figure out the meaning if needed
-vim.cmd("colorscheme retrobox")
+opt.conceallevel = 1
 opt.clipboard = "unnamedplus" -- use system clipboard
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.mouse = "a"               -- allow the mouse to be used in Nvim
@@ -25,3 +25,5 @@ opt.hlsearch = true   -- highlight matches
 opt.ignorecase = true -- ignore case in searches by default
 opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
 opt.wrap = true
+
+vim.cmd("colorscheme retrobox")
