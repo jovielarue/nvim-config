@@ -25,5 +25,3 @@ opt.hlsearch = true   -- highlight matches
 opt.ignorecase = true -- ignore case in searches by default
 opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
 opt.wrap = true
-
-vim.cmd("colorscheme retrobox")
