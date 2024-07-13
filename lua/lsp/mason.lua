@@ -13,6 +13,7 @@ local servers = {
   "kotlin_language_server",
   "intelephense",
   "rust_analyzer",
+  "markdown_oxide",
 }
 
 local settings = {
