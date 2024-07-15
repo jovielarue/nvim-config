@@ -1,8 +1,8 @@
 return {
   "kdheepak/lazygit.nvim",
-  config = function()
-    require("lazygit").setup({})
-  end,
+  -- config = function()
+  -- lazygit does not require calling setup
+  -- end,
 
   cmd = {
     "LazyGit",

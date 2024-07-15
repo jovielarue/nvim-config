@@ -1,11 +1,11 @@
 --- js debugger setup ---
 require("dap").adapters["pwa-node"] = {
   type = "server",
-  host = "localhost",
-  port = 3000,
+  host = "::1",
+  port = "${port}",
   executable = {
     command = "node",
-    args = { "~/.debuggers/js-debug/src/dapDebugServer.js", 3000 },
+    args = { "~/.debuggers/js-debug/src/dapDebugServer.js", "${port}" },
   }
 }
 require("dap").configurations.javascript = {
@@ -34,8 +34,8 @@ local dap, dapui = require("dap"), require("dapui")
 -- dap.listeners.before.event_exited.dapui_config = function()
 --   dapui.close()
 -- end
-vim.keymap.set('n', '<Leader>c', function() require('dap').continue() end)
-vim.keymap.set('n', '<Leader>so', function() require('dap').step_over() end)
-vim.keymap.set('n', '<Leader>si', function() require('dap').step_into() end)
-vim.keymap.set('n', '<Leader>out', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>c', function() dap.continue() end)
+vim.keymap.set('n', '<Leader>so', function() dap.step_over() end)
+vim.keymap.set('n', '<Leader>si', function() dap.step_into() end)
+vim.keymap.set('n', '<Leader>out', function() dap.step_out() end)
+vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
