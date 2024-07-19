@@ -29,10 +29,13 @@ local settings = {
   max_concurrent_installers = 4,
 }
 
-require("mason").setup()
+require("mason").setup({
+  lazy = false,
+})
 require("mason-lspconfig").setup({
   ensure_installed = servers,
   automatic_installation = true,
+  lazy = false,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
