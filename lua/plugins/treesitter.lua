@@ -14,8 +14,7 @@ return {
       autopairs = {
         enable = true,
       },
-      indent = { enable = true, disable = { "" } },
-
+      indent = { enable = true },
       context_commentstring = {
         enable = true,
         enable_autocmd = false,

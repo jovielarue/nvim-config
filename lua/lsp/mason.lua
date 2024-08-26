@@ -14,6 +14,7 @@ local servers = {
   "intelephense",
   "rust_analyzer",
   "markdown_oxide",
+  "jdtls",
 }
 
 local settings = {
