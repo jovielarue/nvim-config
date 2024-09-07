@@ -21,6 +21,7 @@ return {
         "typescriptreact",
         "rust",
         "yaml",
+        "google-java-format",
       },
     })
     vim.cmd("let g:prettier#config#single_quote = 'true'")

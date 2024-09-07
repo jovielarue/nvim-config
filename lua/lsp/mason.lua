@@ -9,7 +9,6 @@ local servers = {
   "yamlls",
   "eslint",
   "tailwindcss",
-  "jdtls",
   "kotlin_language_server",
   "intelephense",
   "rust_analyzer",
@@ -43,6 +42,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, server in pairs(servers) do
+  -- silly PR changed tsserver to ts_ls in nvim-lspconfig
+  -- this just changes the name so I don't get a warning every time I open nvim
+  if server == "tsserver" then
+    server = "ts_ls"
+  end
+
   require("lspconfig")[server].setup {
     capabilities = capabilities
   }

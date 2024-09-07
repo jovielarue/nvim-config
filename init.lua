@@ -2,6 +2,7 @@ require("user.options")
 require("user.keymaps")
 require("user.colorscheme")
 
+-- install lazy.nvim if it does not exist
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -25,7 +26,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   -- automatically check for plugin updates
-  -- checker = { enabled = true },
+  checker = { enabled = true },
   config = function()
     require("lsp")
   end,

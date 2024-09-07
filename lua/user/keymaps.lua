@@ -59,11 +59,12 @@ vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 ---------------
 -- Debugging --
 ---------------
--- vim.keymap.set('n', '<Leader>c', function() require('dap').continue() end)
--- vim.keymap.set('n', '<Leader>so', function() require('dap').step_over() end)
--- vim.keymap.set('n', '<Leader>si', function() require('dap').step_into() end)
--- vim.keymap.set('n', '<Leader>out', function() require('dap').step_out() end)
--- vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>c', function() require('dap').continue() end)
+vim.keymap.set('n', '<Leader>so', function() require('dap').step_over() end)
+vim.keymap.set('n', '<Leader>si', function() require('dap').step_into() end)
+vim.keymap.set('n', '<Leader>out', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+
 -- Evaluate variable under cursor
 vim.keymap.set("n", "<space>?", function()
   require("dapui").eval(nil, { enter = true })
