@@ -16,19 +16,6 @@ local servers = {
   "jdtls",
 }
 
-local settings = {
-  ui = {
-    border = "none",
-    icons = {
-      package_installed = "◍",
-      package_pending = "◍",
-      package_uninstalled = "◍",
-    },
-  },
-  log_level = vim.log.levels.info,
-  max_concurrent_installers = 4,
-}
-
 require("mason").setup({
   lazy = false,
 })
@@ -48,7 +35,20 @@ for _, server in pairs(servers) do
     server = "ts_ls"
   end
 
-  require("lspconfig")[server].setup {
-    capabilities = capabilities
-  }
+  -- set up global 'vim' so you don't get a bunch of LSP warnings in Lua
+  if server == "lua_ls" then
+    require("lspconfig")[server].setup {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" }
+          }
+        }
+      }
+    }
+  else
+    require("lspconfig")[server].setup {
+      capabilities = capabilities
+    }
+  end
 end

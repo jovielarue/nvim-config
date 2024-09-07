@@ -11,6 +11,7 @@ opt.softtabstop = 2  -- number of spacesin tab when editing
 opt.shiftwidth = 2   -- insert 4 spaces on a tab
 opt.expandtab = true -- tabs are spaces, mainly because of python
 opt.autoindent = true
+
 -- UI config
 opt.number = true         -- show absolute number
 opt.relativenumber = true -- add numbers to each line on the left side
@@ -19,6 +20,7 @@ opt.splitbelow = true     -- open new vertical split bottom
 opt.splitright = true     -- open new horizontal splits right
 opt.termguicolors = true  -- enable 24-bit RGB color in the TUI
 opt.showmode = true
+
 -- Searching
 opt.incsearch = true  -- search as characters are entered
 opt.hlsearch = true   -- highlight matches

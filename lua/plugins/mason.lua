@@ -1,4 +1,3 @@
--- config found in lsp/mason.lua
 return {
   "williamboman/mason.nvim",
   "neovim/nvim-lspconfig",

@@ -18,19 +18,8 @@ vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 
--- Set <C-w> to <C-w><C-w> so I don't have to press it twice
--- It pauses for a second before completing so I commented it out until I find a fix
--- vim.keymap.set("n", "<C-w>", "<C-w><C-w>", opts)
-
 -- Start Oil (file explorer)
 vim.keymap.set("n", "e", ":Oil<CR>", opts)
--- commented in lieu of vim-tmux-navigator
--- -- Hint: see `:h vim.map.set()`
--- -- Better window navigation
--- vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
--- vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
--- vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
--- vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 -- delta: 2 lines

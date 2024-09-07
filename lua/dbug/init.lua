@@ -1,7 +1,8 @@
--- sets up dap and dapui and auto dapui open/close with keymaps
 local dap, dapui = require("dap"), require("dapui")
 require("dapui").setup({})
 require("nvim-dap-virtual-text").setup()
+
+-- Auto dapui open/close with keymaps
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
