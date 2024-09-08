@@ -2,7 +2,7 @@ local servers = {
   "lua_ls",
   "cssls",
   "html",
-  "tsserver",
+  "ts_ls",
   "pyright",
   "bashls",
   "jsonls",
@@ -29,12 +29,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, server in pairs(servers) do
-  -- silly PR changed tsserver to ts_ls in nvim-lspconfig
-  -- this just changes the name so I don't get a warning every time I open nvim
-  if server == "tsserver" then
-    server = "ts_ls"
-  end
-
   -- set up global 'vim' so you don't get a bunch of LSP warnings in Lua
   if server == "lua_ls" then
     require("lspconfig")[server].setup {

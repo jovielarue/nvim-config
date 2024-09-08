@@ -32,7 +32,7 @@ return {
         ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
-        { name = 'luasnip',  max_item_count = 8 }, -- For luasnip users.
+        { name = 'luasnip',  max_item_count = 8 },     -- For luasnip users.
         { name = 'nvim_lsp', max_item_count = 8 },
         -- { name = "codeium" },
         { name = 'path',     max_item_count = 8 },
