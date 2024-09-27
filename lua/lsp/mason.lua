@@ -13,12 +13,17 @@ local servers = {
   "intelephense",
   "rust_analyzer",
   "markdown_oxide",
-  "jdtls",
+  "sqlls",
+  "lemminx",
 }
 
 require("mason").setup({
   lazy = false,
 })
+
+-- set up java lsp
+require('lspconfig').jdtls.setup({})
+
 require("mason-lspconfig").setup({
   ensure_installed = servers,
   automatic_installation = true,
@@ -38,7 +43,8 @@ for _, server in pairs(servers) do
             globals = { "vim" }
           }
         }
-      }
+      },
+      capabilities = capabilities
     }
   else
     require("lspconfig")[server].setup {

@@ -10,6 +10,7 @@ return {
         typescript = { "prettierd" },
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
+        java = { "google-java-format" },
         svelte = { "prettierd" },
         css = { "prettierd" },
         html = { "prettierd" },
@@ -20,9 +21,8 @@ return {
         rust = { "rustfmt" },
         lua = { "stylua" },
         python = { "isort", "black" },
-        sql = { "sql-formatter" },
       },
-      format_on_save = { lsp_fallback = true, async = false, timeout_ms = 500 },
+      format_on_save = { lsp_fallback = true, async = false, timeout_ms = 1000 },
       vim.keymap.set({ "n", "v" }, "<leader>mp", function()
         conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
       end, { desc = "Format file or range (in visual mode)" })
