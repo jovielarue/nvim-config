@@ -10,6 +10,8 @@
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "codeium.nvim": { "branch": "main", "commit": "937667b2cadc7905e6b9ba18ecf84694cf227567" },
   "conform.nvim": { "branch": "master", "commit": "936f2413e6c57185cd873623a29a0685bce4b423" },
+  "dressing.nvim": { "branch": "master", "commit": "1b7921eecc65af1baf8ac1dc06f0794934cbcfb2" },
+  "flutter-tools.nvim": { "branch": "main", "commit": "ce18f5da5f9c458cd26eef5c3accb0c37b2263c2" },
   "friendly-snippets": { "branch": "main", "commit": "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4" },
   "gitsigns.nvim": { "branch": "main", "commit": "1ef74b546732f185d0f806860fa5404df7614f28" },
   "hover.nvim": { "branch": "main", "commit": "4339cbbcb572b1934c53dcb66ad4bf6a0abb7918" },

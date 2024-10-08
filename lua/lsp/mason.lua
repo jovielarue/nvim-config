@@ -21,6 +21,9 @@ require("mason").setup({
   lazy = false,
 })
 
+-- set up flutter/dart tools
+require("flutter-tools").setup {} -- use defaults
+
 -- set up java lsp
 require('lspconfig').jdtls.setup({})
 
