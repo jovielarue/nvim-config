@@ -10,7 +10,7 @@ opt.tabstop = 2      -- number of visual spaces per TAB
 opt.softtabstop = 2  -- number of spaces in tab when editing
 opt.shiftwidth = 2   -- insert 4 spaces on a tab
 opt.expandtab = true -- tabs are spaces, mainly because of python
-opt.autoindent = true
+opt.smartindent = true
 
 -- UI config
 opt.number = true         -- show absolute number

@@ -14,6 +14,7 @@ local servers = {
   "rust_analyzer",
   "markdown_oxide",
   "sqlls",
+  "svelte",
   "lemminx",
 }
 
