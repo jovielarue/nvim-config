@@ -21,6 +21,9 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 -- Start Oil (file explorer)
 vim.keymap.set("n", "e", ":Oil<CR>", opts)
 
+-- CodeCompanion
+vim.keymap.set("v", "<Leader>l", ":CodeCompanion ", opts)
+
 -- Resize with arrows
 -- delta: 2 lines
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -52,11 +55,11 @@ vim.keymap.set("n", "<Leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 ---------------
 -- Debugging --
 ---------------
-vim.keymap.set('n', '<Leader>c', function() require('dap').continue() end)
-vim.keymap.set('n', '<Leader>so', function() require('dap').step_over() end)
-vim.keymap.set('n', '<Leader>si', function() require('dap').step_into() end)
-vim.keymap.set('n', '<Leader>out', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+-- vim.keymap.set('n', '<Leader>c', function() require('dap').continue() end)
+-- vim.keymap.set('n', '<Leader>so', function() require('dap').step_over() end)
+-- vim.keymap.set('n', '<Leader>si', function() require('dap').step_into() end)
+-- vim.keymap.set('n', '<Leader>out', function() require('dap').step_out() end)
+-- vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
 
 -- Evaluate variable under cursor
 vim.keymap.set("n", "<space>?", function()

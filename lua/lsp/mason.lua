@@ -3,7 +3,7 @@ local servers = {
   "cssls",
   "html",
   "ts_ls",
-  "pyright",
+  "pylsp",
   "bashls",
   "jsonls",
   "yamlls",
@@ -16,6 +16,8 @@ local servers = {
   "sqlls",
   "svelte",
   "lemminx",
+  "clangd",
+  "jdtls",
 }
 
 require("mason").setup({
@@ -24,9 +26,6 @@ require("mason").setup({
 
 -- set up flutter/dart tools
 require("flutter-tools").setup {} -- use defaults
-
--- set up java lsp
-require('lspconfig').jdtls.setup({})
 
 require("mason-lspconfig").setup({
   ensure_installed = servers,

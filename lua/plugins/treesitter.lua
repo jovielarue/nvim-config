@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "OXY2DEV/markview.nvim",
+  },
 
   config = function()
     local treesitter_configs = require("nvim-treesitter.configs")
