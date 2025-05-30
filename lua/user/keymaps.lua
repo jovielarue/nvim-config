@@ -70,6 +70,6 @@ end)
 -- Visual mode --
 -----------------
 
--- Hint: start visual mode with the same area as the previous area and the same mode
+-- Indents while keeping text selected
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)

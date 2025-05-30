@@ -19,7 +19,7 @@ return {
         enable = true,
       },
 
-      indent = { enable = true },
+      indent = { enable = false },
 
       context_commentstring = {
         enable = true,
