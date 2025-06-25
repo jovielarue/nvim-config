@@ -15,7 +15,7 @@ return {
     local lspkind = require("lspkind")
 
     cmp.setup({
-      completion = { completeopt = "menu,menuone" },
+      completion = { completeopt = "menuone" },
 
       snippet = {
         -- REQUIRED - you must specify a snippet engine

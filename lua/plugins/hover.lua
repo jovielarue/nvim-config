@@ -5,7 +5,6 @@ return {
       init = function()
         -- Require providers
         require("hover.providers.lsp")
-        require("hover.providers.diagnostic")
       end,
       preview_opts = {
         border = 'single'
