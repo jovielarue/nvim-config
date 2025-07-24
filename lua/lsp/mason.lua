@@ -25,12 +25,13 @@ require("mason").setup({
 })
 
 -- set up flutter/dart tools
-require("flutter-tools").setup {} -- use defaults
+-- require("flutter-tools").setup {} -- use defaults
 
 require("mason-lspconfig").setup({
   ensure_installed = servers,
   automatic_installation = true,
-  lazy = false,
+  automatic_enable = false,
+  lazy = true,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

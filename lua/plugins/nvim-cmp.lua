@@ -17,14 +17,6 @@ return {
     cmp.setup({
       completion = { completeopt = "menuone" },
 
-      snippet = {
-        -- REQUIRED - you must specify a snippet engine
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          vim.snippet.expand(args.body)            -- For native neovim snippets (Neovim v0.10+)
-        end,
-      },
-
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -46,8 +38,6 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif require("luasnip").expand_or_jumpable() then
-            require("luasnip").expand_or_jump()
           else
             fallback()
           end
@@ -56,8 +46,6 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif require("luasnip").jumpable(-1) then
-            require("luasnip").jump(-1)
           else
             fallback()
           end
@@ -67,7 +55,6 @@ return {
       sources = cmp.config.sources({
         { name = 'path',     group_index = 2,  max_item_count = 8 },
         { name = 'nvim_lsp', ground_index = 1, max_item_count = 8 },
-        { name = 'luasnip',  group_index = 4,  max_item_count = 8 }, -- For luasnip users.
         { name = 'buffer',   group_index = 3,  max_item_count = 8 },
       }),
 
