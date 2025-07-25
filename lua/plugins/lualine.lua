@@ -52,6 +52,7 @@ return {
       "location",
       padding = 0,
     }
+
     -- cool function for progress
     local progress = function()
       local current_line = vim.fn.line(".")

@@ -1,6 +1,7 @@
 require("user.options")
 require("user.keymaps")
 require("user.colorscheme")
+require("user.autocmds")
 
 -- install lazy.nvim if it does not exist
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
