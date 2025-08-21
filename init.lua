@@ -35,7 +35,6 @@ require("lazy").setup({
 
 -- mason must be setup after lazy plugins
 require("lsp")
-require("dbug")
 
 vim.cmd("packloadall")
 
