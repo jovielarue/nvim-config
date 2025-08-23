@@ -57,6 +57,6 @@ create_plugin_md_links >> "$TEMP_FILE"
 mv "$TEMP_FILE" "$README_PATH"
 
 # Stage the updated readme for commit
-# git add "$README_PATH"
+git add "$README_PATH"
 
 exit 0
