@@ -1,3 +1,4 @@
+-- Extremely useful code grammar interpreter that provides many standard quality-of-life features you'd expect in a code editor
 return {
   "nvim-treesitter/nvim-treesitter",
 

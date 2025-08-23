@@ -1,3 +1,4 @@
+-- Awesome picker, sorter, previewer, etc.
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {

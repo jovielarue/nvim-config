@@ -1,3 +1,4 @@
+-- Shows indent depths with pretty colors
 return {
   "lukas-reineke/indent-blankline.nvim",
   config = function()

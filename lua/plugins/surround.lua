@@ -1,3 +1,4 @@
+-- Used primarily for surrounding words with quotes
 return {
   "kylechui/nvim-surround",
 

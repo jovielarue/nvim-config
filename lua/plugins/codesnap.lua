@@ -1,3 +1,4 @@
+-- Takes nice screenshots of my code
 return {
   "mistricky/codesnap.nvim",
   build = "make build_generator",

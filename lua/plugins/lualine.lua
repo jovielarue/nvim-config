@@ -1,3 +1,4 @@
+-- Custom line at the bottom of the editor which shows git/error status and other useful information
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { 'nvim-tree/nvim-web-devicons' },

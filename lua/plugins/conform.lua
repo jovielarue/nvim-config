@@ -1,3 +1,4 @@
+-- Formatter compatible with many different formatting engines
 return {
   "stevearc/conform.nvim",
   config = function()

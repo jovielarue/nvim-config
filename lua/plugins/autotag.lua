@@ -1,3 +1,4 @@
+-- Auto closes and renames pairs of html tags
 return {
   "windwp/nvim-ts-autotag",
   config = function()

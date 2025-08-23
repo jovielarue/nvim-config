@@ -1,8 +1,6 @@
+-- Best git interface ever
 return {
   "kdheepak/lazygit.nvim",
-  -- config = function()
-  -- lazygit does not require calling setup
-  -- end,
 
   cmd = {
     "LazyGit",

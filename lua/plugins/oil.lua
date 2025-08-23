@@ -1,3 +1,4 @@
+-- Best filesystem view ever. Edit your files like a vim buffer
 return {
   "stevearc/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },

@@ -1,3 +1,4 @@
+-- Highlights hex/hsl/tailwind colors inline
 return {
   "brenoprata10/nvim-highlight-colors",
 

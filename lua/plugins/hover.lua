@@ -1,3 +1,4 @@
+-- Makes hover providers pretty
 return {
   "lewis6991/hover.nvim",
   config = function()
