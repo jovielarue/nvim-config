@@ -7,4 +7,13 @@ endfun
 
 "Aliases work best for one command at a time, command! works best for multiple commands"
 call SetupCommandAlias("W","w")
-command! Bda execute '%bd | e# | bd#'
+
+"Function to keep cursor where the position was when the buffer is closed by %bd"
+function! Bda()
+  let line = line('.')
+  let col = col('.')
+  execute '%bd | e# | bd#'
+  call cursor(line, col)
+endfunction
+
+command! Bda call Bda()
