@@ -5,10 +5,11 @@ return {
     "onsails/lspkind.nvim",
     "neovim/nvim-lspconfig",
     "js-everts/cmp-tailwind-colors",
-    "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
-    "hrsh7th/cmp-buffer",   -- buffer auto-completion
-    "hrsh7th/cmp-path",     -- path auto-completion
-    "hrsh7th/cmp-cmdline",  -- cmdline auto-completion
+    "hrsh7th/cmp-nvim-lsp",                -- lsp auto-completion
+    "hrsh7th/cmp-buffer",                  -- buffer auto-completion
+    "hrsh7th/cmp-path",                    -- path auto-completion
+    "hrsh7th/cmp-cmdline",                 -- cmdline auto-completion
+    "hrsh7th/cmp-nvim-lsp-signature-help", -- lsp signature hints
   },
 
   config = function()
@@ -54,9 +55,10 @@ return {
       },
 
       sources = cmp.config.sources({
-        { name = 'path',     group_index = 2,  max_item_count = 8 },
-        { name = 'nvim_lsp', ground_index = 1, max_item_count = 8 },
-        { name = 'buffer',   group_index = 3,  max_item_count = 8 },
+        { name = 'path',                   group_index = 2,  max_item_count = 8 },
+        { name = 'nvim_lsp',               ground_index = 1, max_item_count = 8 },
+        { name = 'buffer',                 group_index = 3,  max_item_count = 8 },
+        { name = 'nvim_lsp_signature_help' },
       }),
 
       formatting = {

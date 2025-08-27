@@ -5,18 +5,28 @@ return {
     "nvim-lua/plenary.nvim",
     {
       'nvim-telescope/telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
       build =
       'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
   },
 
   config = function()
-    require('telescope').setup()
+    require('telescope').setup {
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {}
+        }
+      }
+    }
+    require("telescope").load_extension("ui-select")
+
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+    vim.keymap.set('n', '<leader>d', builtin.diagnostics, {})
     vim.keymap.set('n', 'gd', builtin.lsp_definitions, {})
     vim.keymap.set('n', 'gr', builtin.lsp_references, {})
   end
