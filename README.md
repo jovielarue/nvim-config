@@ -8,6 +8,7 @@ I keep these plugins up-to-date, and I'm using them with no problem on neovim ve
 
 |Filename|Plugin|Functionality|
 |-----|-----|-----|
+|alpha.lua|[alpha-nvim](https://github.com/goolord/alpha-nvim)|Custom nvim startup screen|
 |autoclose.lua|[autoclose.nvim](https://github.com/m4xshen/autoclose.nvim)|Auto pairs brackets, quotes, etc.|
 |autotag.lua|[nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)|Auto closes and renames pairs of html tags|
 |blamer.lua|[blamer.nvim](https://github.com/APZelos/blamer.nvim)|Git blame inline with keymap|
