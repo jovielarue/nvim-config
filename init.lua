@@ -38,6 +38,7 @@ require("lsp")
 
 vim.cmd("packloadall")
 
+-- getting rid of rust lsp errors
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
   local default_diagnostic_handler = vim.lsp.handlers[method]
   vim.lsp.handlers[method] = function(err, result, context, config)
@@ -47,3 +48,6 @@ for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) d
     return default_diagnostic_handler(err, result, context, config)
   end
 end
+
+vim.cmd("highlight DiagnosticUnderlineError guifg=#FF0000 gui=undercurl")
+vim.cmd("highlight DiagnosticUnderlineWarn guifg=#FFF000 gui=undercurl")
