@@ -2,9 +2,11 @@
 
 It changes a lot. But I think it's pretty cool.
 
-I keep these plugins up-to-date, and I'm using them with no problem on neovim version v0.12.0-dev-1010+gd19d2b4491.
+Because it changes so often, I use a handy pre-commit script (located in the root of my config so it can be tracked by git, symlinked to .git/hooks/pre-commit) to generate this list of plugins and Mason servers every time I update my config.
 
 ### Plugins Used
+
+I keep these plugins up-to-date, and I'm using them with no problem on neovim version v0.12.0-dev-1010+gd19d2b4491.
 
 |Filename|Plugin|Functionality|
 |-----|-----|-----|
@@ -32,3 +34,27 @@ I keep these plugins up-to-date, and I'm using them with no problem on neovim ve
 |tidal.lua|[vim-tidal](https://github.com/tidalcycles/vim-tidal)|Make music with the power of code!|
 |treesitter.lua|[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)|Extremely useful code grammar interpreter that provides many standard quality-of-life features you'd expect in a code editor|
 |undotree.lua|[undotree](https://github.com/mbbill/undotree)|Visualize previous changes even if they have branched off from each other|
+
+I use [Mason](https://github.com/mason-org/mason.nvim) for all my LSP/DAP/formatter/etc. management. It's useful.
+
+|Mason Servers Installed|
+|-----|
+|bashls|
+|clangd|
+|cssls|
+|eslint|
+|html|
+|intelephense|
+|jdtls|
+|jsonls|
+|kotlin_language_server|
+|lemminx|
+|lua_ls|
+|markdown_oxide|
+|pylsp|
+|rust_analyzer|
+|sqlls|
+|svelte|
+|tailwindcss|
+|ts_ls|
+|yamlls|

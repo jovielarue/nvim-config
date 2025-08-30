@@ -2,10 +2,15 @@
 
 # Plugin directory path
 PLUGINS_PATH="lua/plugins"
+MASON_PATH="lua/lsp/mason.lua"
 README_PATH="README.md"
 
 # Ensure paths exist
 if [ ! -d "$PLUGINS_PATH" ]; then
+  echo "Error: target directory '$PLUGINS_PATH' does not exist."
+  exit 1
+fi
+if [ ! -e "$MASON_PATH" ]; then
   echo "Error: target directory '$PLUGINS_PATH' does not exist."
   exit 1
 fi
@@ -32,7 +37,7 @@ create_plugin_md_links() {
         plugin_name="${full_plugin_name#*/}"
 
         # Extract the first line from the first_three_lines
-        IFS=$'\n' read first_line <<< "$first_three_lines"
+        IFS=$'\n' read first_line <<<"$first_three_lines"
         # -- --> matches dashes
         # \s --> matches whitespace after the dashes
         # (.+) --> captures line after the dashes after the first space
@@ -41,21 +46,51 @@ create_plugin_md_links() {
         fi
 
         # Generate markdown link with table syntax
-        printf "%s%s%s\n" "|${file_path#*/*/}|" "[$plugin_name](https://github.com/$full_plugin_name)|" "$comment_line|" >> "$TEMP_FILE"
+        printf "%s%s%s\n" "|${file_path#*/*/}|" "[$plugin_name](https://github.com/$full_plugin_name)|" "$comment_line|" >>"$TEMP_FILE"
       fi
     fi
   done
 }
 
-printf "%s\n\n" "# This is my personal [neovim](https://github.com/neovim/neovim) config." >> "$TEMP_FILE"
-printf "%s\n\n" "It changes a lot. But I think it's pretty cool." >> "$TEMP_FILE"
-printf "%s\n\n" "I keep these plugins up-to-date, and I'm using them with no problem on neovim version $(nvim --version | head -n 1 | awk '{print $2}')." >> "$TEMP_FILE"
+create_mason_server_list() {
+  mason_file=$(cat "$MASON_PATH")
+  # ensure mason path includes the servers table
+  if [[ $mason_file =~ local[[:space:]]servers[[:space:]]=[[:space:]]\{ ]]; then
+    # awk statement generated with help from perplexity
+    # /{/{ sets a flag (inside=1) when the opening brace is seen
+    # if inside is true (1) and the line contains quotes, match the quoted string on that line
+    # /{ ensures that when the closing brace is found, inside is set to 0 (false) and exits
+    language_servers_list=$(awk '
+      /{/{ inside=1 }
+        inside && /"/ {
+          match($0, /"([^"]+)"/, arr)
+          if (arr[1] != "") print arr[1]
+        }
+      /}/{ inside=0; exit }' $MASON_PATH)
 
-printf "%s\n\n" "### Plugins Used" >> "$TEMP_FILE"
-printf "%s\n%s\n" "|Filename|Plugin|Functionality|" "|-----|-----|-----|" >> "$TEMP_FILE"
+    readarray -t language_servers_array <<<"$language_servers_list"
+
+    for i in ${language_servers_array[@]}; do
+      printf "%s\n" "|$i|"
+    done
+  fi
+}
+
+printf "%s\n\n" "# This is my personal [neovim](https://github.com/neovim/neovim) config." >>"$TEMP_FILE"
+printf "%s\n\n" "It changes a lot. But I think it's pretty cool." >>"$TEMP_FILE"
+printf "%s\n\n" "Because it changes so often, I use a handy pre-commit script (located in the root of my config so it can be tracked by git, symlinked to .git/hooks/pre-commit) to generate this list of plugins and Mason servers every time I update my config." >>"$TEMP_FILE"
+
+printf "%s\n\n" "### Plugins Used" >>"$TEMP_FILE"
+printf "%s\n\n" "I keep these plugins up-to-date, and I'm using them with no problem on neovim version $(nvim --version | head -n 1 | awk '{print $2}')." >>"$TEMP_FILE"
+printf "%s\n%s\n" "|Filename|Plugin|Functionality|" "|-----|-----|-----|" >>"$TEMP_FILE"
 
 # List plugins from files in PLUGINS_PATH as markdown links in markdown table
-create_plugin_md_links >> "$TEMP_FILE"
+create_plugin_md_links >>"$TEMP_FILE"
+
+printf "\n%s\n" "I use [Mason](https://github.com/mason-org/mason.nvim) for all my LSP/DAP/formatter/etc. management. It's useful." >>"$TEMP_FILE"
+printf "\n%s\n%s\n" "|Mason Servers Installed|" "|-----|" >>"$TEMP_FILE"
+
+create_mason_server_list >>"$TEMP_FILE"
 
 # Overwrite readme with updated content
 mv "$TEMP_FILE" "$README_PATH"
