@@ -40,7 +40,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities()
 for _, server in pairs(servers) do
   -- set up global 'vim' so you don't get a bunch of LSP warnings in Lua
   if server == "lua_ls" then
-    require("lspconfig")[server].setup {
+    vim.lsp.config.lua_ls = {
       settings = {
         Lua = {
           diagnostics = {
@@ -51,8 +51,10 @@ for _, server in pairs(servers) do
       capabilities = capabilities
     }
   else
-    require("lspconfig")[server].setup {
+    vim.lsp.config[server] = {
       capabilities = capabilities
     }
   end
 end
+
+vim.lsp.enable(servers)

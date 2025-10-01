@@ -51,3 +51,4 @@ end
 
 vim.cmd("highlight DiagnosticUnderlineError guifg=#FF0000 gui=undercurl")
 vim.cmd("highlight DiagnosticUnderlineWarn guifg=#FFF000 gui=undercurl")
+vim.lsp.document_color.enable(true, 0, { style = 'foreground' })

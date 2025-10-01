@@ -20,7 +20,6 @@ I keep these plugins up-to-date, and I'm using them with no problem on neovim ve
 |conform.lua|[conform.nvim](https://github.com/stevearc/conform.nvim)|Formatter compatible with many different formatting engines|
 |fugitive.lua|[vim-fugitive](https://github.com/tpope/vim-fugitive)|Git integration in colon commands|
 |gitsigns.lua|[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)|Visual for where my code has been edited/changed/deleted/added since last commit|
-|highlight-colors.lua|[nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors)|Highlights hex/hsl/tailwind colors inline|
 |hover.lua|[hover.nvim](https://github.com/lewis6991/hover.nvim)|Makes hover providers pretty|
 |ibl.lua|[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)|Shows indent depths with pretty colors|
 |illuminate.lua|[vim-illuminate](https://github.com/RRethy/vim-illuminate)|Underlines other uses of the word under the cursor|
